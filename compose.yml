@@ -1,0 +1,19 @@
+name: fastapi
+
+services:
+  fastapi:
+    image: fastapi
+    container_name: fastapi
+    build:
+      context: ./fastapi
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports:
+      - "8003:8003"
+    volumes:
+      ./fastapi:/code
+    tty: true
+
+networks:
+  default:
+    driver: bridge
